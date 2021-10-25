@@ -103,7 +103,7 @@ if(isset($_COOKIE['openPages'])) {
 </div>
 <?php } ?>
 
-<?php if(is_paged()){
+<?php if(is_paged() || $_GET['view-more']){
     if($post->ID === 10){
         include 'includes/content-knowledge-sharing-paged.php';
     }

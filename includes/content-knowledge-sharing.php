@@ -27,7 +27,7 @@
                 //if(isset($_GET[$filter_names[0]]) || isset($_GET[$filter_names[1]])){
                 $query = "";
                 if(isset($filters)){    
-                    $query = "?";
+                    $query = "&";
                     $tax_arrays = array();
                     foreach($filter_names as $filter_name){
                         if(isset($filters[$filter_name])){
@@ -46,6 +46,7 @@
                         'post_type' => 'knowledge',
                         'orderby' => 'rand',
                         'order' => 'ASC',
+                        'posts_per_page' => 6,
                         'tax_query' => array(
                             'relation' => 'AND',
                             $tax_arrays
@@ -64,7 +65,7 @@
         <?php 
             $next_link = get_next_posts_link(__('View More', 'textdomain'), $knowledge_query->max_num_pages);
             if($next_link){
-                echo '<div class="open-pagination-popup view-more filter-content"><a href="'.get_permalink(10).'page/2/'.$query.'">View More</a></div>';
+                echo '<div class="open-pagination-popup view-more filter-content"><a href="'.get_permalink(10).'?view-more=1'.$query.'">View More</a></div>';
             }
 
             wp_reset_query();

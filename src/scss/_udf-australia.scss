@@ -56,7 +56,8 @@
     text-align: center;
 }
 @media (hover: hover) and (pointer: fine) {
-    .cta {
+    .cta,
+    .sidebar .filter {
         transition: all .2s;
         &:hover {
             background: #000;
@@ -75,12 +76,21 @@
         padding: 0.5rem 2.5rem .75rem 0;
         position: relative;
         &:after {
-            content: "▶";
+            // content: "▶";
+            // position: absolute;
+            // top:.5rem;
+            // right:0;
+            // font-family: Helvetica, Arial, sans-serif;
+            content: "";
             position: absolute;
-            top:.5rem;
-            right:0;
-            font-family: Arial, Helvetica, sans-serif;
-
+            right: 0;
+            top: 1rem;
+            width: 0;
+            height: 0;
+            border-top: .4em solid transparent;
+            border-left: .7em solid #000;
+            border-bottom: .4em solid transparent;
+            transition: transform .3s;
         }
     }
     h6 {
@@ -177,11 +187,25 @@
 
 .supporters-list {
     margin: 3.75rem 0 0;
-    font-family:"VremenaBold";
+    //font-family:"VremenaBold";
     h4 {
         margin: 0 0 .25em;
     }
 }
+@media (hover: hover) and (pointer: fine) {
+    .supporters-list,
+    .contacts {
+        a {
+            border-bottom: 1px solid transparent;
+            display: inline-block;
+            line-height: .75;
+            transition: border-color .2s;
+            &:hover {
+                border-color: #000;
+            }
+        }
+    }    
+}    
 .contacts {
     .two-cols {
         margin: 0;
@@ -195,8 +219,15 @@
 // }
 
 @media #{ $lt-phone } {  
+    #urban-design-forum-australia .sidebar-layout.section-content-wrap .sidebar {
+        position: sticky;
+        top:0;
+        padding: 2rem 0;
+        z-index: 2;
+        background-color: var(--section-color);
+    }
     .subpage-nav {
-        position: relative;
+        top:0;
         top:auto;
         width: 100%;
         padding: 0;
@@ -205,13 +236,14 @@
         font-family: FFElementaWebProRegular;
         font-weight: normal;
         .toggle-menu-mob,
-        ul li a {
-            padding: 1rem;
+        ul li {
+            padding: 1.2rem;
             border: 1px solid;
         }
         .toggle-menu-mob {
             display: block;
-            border-radius: 0.25rem;
+            border-radius: 0.5rem;
+            padding: 1.2rem;
             border: 1px solid;
             &:after {
                 content: "+";
@@ -221,9 +253,12 @@
         ul {
             display: none;
             li {
+                border-top: none;
                 a {
-                    border-top: none;
                     display: block;
+                }
+                &:last-child {
+                    border-radius: 0 0 0.25rem 0.25rem;
                 }    
             }
         }
@@ -253,5 +288,10 @@
     .panel {
         width: 100%;
         left:-100%;
-    }     
+    } 
+    .cta,
+    .view-more a { 
+        border-radius: .5rem;
+        padding: 1.2rem;
+    }    
 }    

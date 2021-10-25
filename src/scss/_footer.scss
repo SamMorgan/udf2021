@@ -90,12 +90,22 @@ input:-webkit-autofill:active  {
             position: relative;
             width: 11rem;
             &:after {
-                content: "▶";
+                // content: "▶";
+                // position: absolute;
+                // top: .5rem;
+                // right: 0;
+                // font-size: .7em;
+                // font-family: Arial,Helvetica,sans-serif;
+                content: "";
                 position: absolute;
-                top: .5rem;
                 right: 0;
-                font-size: .7em;
-                font-family: Arial,Helvetica,sans-serif;
+                top: .1em;
+                width: 0;
+                height: 0;
+                border-top: .35em solid transparent;
+                border-left: .6em solid #000;
+                border-bottom: .35em solid transparent;
+                transition: transform .3s;
             }
         }
     }    

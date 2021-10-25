@@ -6,7 +6,7 @@
             $img = get_field('column_2',16);
             if($img){
                 $padding = $img['height']/$img['width']*100;
-                echo '<div class="imgwrap" style="padding-bottom:'.$padding.'%"><img src="'.$img['url'].'"></div>';
+                echo '<div class="imgwrap tinted-img" style="padding-bottom:'.$padding.'%"><img src="'.$img['url'].'"></div>';
             }
         ?></div>
     </div> 

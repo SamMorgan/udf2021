@@ -5,7 +5,8 @@
     li {
         border-top: 1px solid;
         position: relative;
-        div {
+        a {
+            display: block;
             padding: .75rem 3.75rem .75rem 0;
         }
         svg {
@@ -17,3 +18,24 @@
         }
     }    
 }
+@media (hover: hover) and (pointer: fine) {
+    .education-providers {
+        li {
+            a {
+                span {
+                    background-image: linear-gradient(rgba(0, 0, 0, 0) 1px, transparent 0px);
+                    background-size: 100% 2em;
+                    background-position-y: .875em;
+                    text-shadow:
+                    1px 1px var(--section-color),
+                    1px -1px var(--section-color),
+                    -1px 1px var(--section-color),
+                    -1px -1px var(--section-color);
+                }
+                &:hover span {
+                    background-image: linear-gradient(rgba(0, 0, 0, 1) 1px, transparent 0px);
+                }
+            }
+        }
+    }    
+}    

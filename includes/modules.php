@@ -66,6 +66,9 @@
         <?php elseif( get_row_layout() == 'subheading' ):?>
             <h3 class="subheading"><?php the_sub_field('subheading');?></h3>
 
+        <?php elseif( get_row_layout() == 'cta_button' ):?>
+            <a <?php if(get_field('external_link')){ echo 'class="cta" target="_blank"'; }else{ echo 'class="cta open-popup"'; }?> href="<?php the_sub_field('link');?>"><?php the_sub_field('text');?></a>
+
         <?php endif;
 
 

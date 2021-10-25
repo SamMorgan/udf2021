@@ -7,6 +7,10 @@ import imagesLoaded from 'imagesloaded';
 
 gsap.registerPlugin(ScrollToPlugin);
 
+// if (location.protocol !== 'https:') {
+//     location.replace(`https:${location.href.substring(location.protocol.length)}`);
+// }
+
 const http = axios.create({
     baseURL: '/',
     headers: { 'Cache-Control': 'no-cache' },

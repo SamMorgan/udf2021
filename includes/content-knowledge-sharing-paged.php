@@ -24,6 +24,7 @@
                 </div> 
                 <div class="filter-content index">
                     <?php
+                        $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
                         $knowledge_arr = array(
                             'post_type' => 'knowledge',
                             'orderby' => 'rand',

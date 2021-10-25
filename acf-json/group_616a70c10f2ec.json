@@ -240,6 +240,73 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6176d51add4b0": {
+                    "key": "layout_6176d51add4b0",
+                    "name": "cta_button",
+                    "label": "CTA Button",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6176d523dd4b1",
+                            "label": "Link",
+                            "name": "link",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "45",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6176d52ddd4b2",
+                            "label": "Text",
+                            "name": "text",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "45",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6176d5e4edfae",
+                            "label": "External Link",
+                            "name": "external_link",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "10",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Module",
@@ -306,5 +373,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1634432394
+    "modified": 1635177998
 }
