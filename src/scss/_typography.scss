@@ -1,0 +1,104 @@
+html {
+    font-size: math.div(16,1920)*100vw;
+}
+
+body {
+    font-family:"VremenaBook";
+    font-size: 1.75rem;
+    line-height: 1.14;
+}
+
+strong,
+b,
+h4,
+h5,
+h6,
+.h4 {
+    font-family:"VremenaBold";
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+.richtext {
+    a {
+        display: inline-block;
+        line-height: .75;
+        border-bottom: 1px solid;
+    }
+    ul {
+        li {
+            padding-left: 1.75em;
+            position: relative;
+            &:before {
+                content: '–';
+                position: absolute;
+                left:0;
+                top:0;
+            }
+        }
+    }
+    hr {
+        background: #000;
+        border: none;
+        padding: 0;
+        height: 1px;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .richtext a {
+        transition: border-color .2s;
+        &:hover {
+            border-color: transparent;
+        }
+    }
+}    
+
+.h1,h1,h2,.h2 {
+    font-size: 4.875rem;
+    line-height: 1;
+    @include ag-book-condensed-bold;
+}
+
+h3, .h3 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    @include ag-book-condensed-bold;
+}
+
+.med-txt {
+    font-size: 2.5rem;
+    line-height: 1.1;
+}
+
+.lrg-txt {
+    font-size: 2.75rem;
+    line-height: 1.1;
+}
+
+@media #{ $lt-phone } { 
+    html {
+        font-size: math.div(16,828)*100vw;
+    }
+    body {
+        font-size: 1.5rem;
+        line-height: 1.1667;
+    }
+    .h1, .h2, h1, h2 {
+        font-size: 4.25rem;
+    }
+    .med-txt,
+    .lrg-txt {
+        font-size: 2.25rem;
+        line-height: 1.1;
+    }
+}

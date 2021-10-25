@@ -1,0 +1,7 @@
+
+@font-face {
+    font-family:"VremenaBold";
+    src:url("VremenaBold.woff2") format("woff2"),url("VremenaBold.woff") format("woff"),url("VremenaBold.otf") format("opentype");
+    font-style:normal;font-weight:400;
+}
+        

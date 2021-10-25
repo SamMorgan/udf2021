@@ -1,0 +1,7 @@
+
+@font-face {
+    font-family:"VremenaBook";
+    src:url("VremenaBook.woff2") format("woff2"),url("VremenaBook.woff") format("woff"),url("VremenaBook.otf") format("opentype");
+    font-style:normal;font-weight:400;
+}
+        

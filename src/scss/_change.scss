@@ -1,0 +1,9 @@
+.change-items {
+    h4 {
+        margin: 0 0 .5em;
+    }
+    & > div > div {
+        border-top: 1px solid;
+        padding: .75rem 0;
+    }
+}

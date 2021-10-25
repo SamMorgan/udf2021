@@ -1,0 +1,128 @@
+.site-footer {
+    //min-height:8.875rem;
+    min-height: 5.875rem;
+    //max-height: 7.5rem;
+    flex:1;
+    display: flex;
+    justify-content: space-between;
+    font-family: FFElementaWebProRegular;
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 2rem;
+    align-items: flex-end;
+    position: relative;
+    ul {
+        display: flex;
+        li {
+            &:after {
+                content: ", ";
+            } 
+            &:last-child:after {
+                display: none;
+            }
+        }
+
+    }
+    a {
+        border-bottom: 1px solid;
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px $red inset !important;
+}
+
+.subform {
+    display: none;
+    .close-subform {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top:0;
+        left:0;
+        cursor: pointer;
+    }
+    form {
+        min-height:7.5rem;
+        position: absolute;
+        bottom: 0;
+        right:0;
+        width: 100%;
+        background: $red;
+        padding: 2rem;
+        display: flex;
+        align-items: flex-end;
+        input,
+        button {
+            -webkit-appearance: none;
+            background: none;
+            padding: 0;
+            margin: 0;
+            border: none;
+            display: block;
+            width: 100%;
+        }
+        input {
+            border-bottom: 1px solid;
+            font-family: FFElementaWebProRegular;
+            font-size: 1.25rem;
+            line-height: 1;
+            padding: .5rem 0;
+            margin: 0 2rem 0 0;
+            flex:1;
+            &::-webkit-input-placeholder {
+                color: #000;
+                transition: opacity .3s;
+            }
+            &:focus::-webkit-input-placeholder {
+                opacity: 0;
+            }
+        }
+        button {
+            text-align: left;
+            @include ag-book-condensed-bold;
+            font-size: 2.5rem;
+            line-height: 1;
+            text-transform: uppercase;
+            position: relative;
+            width: 11rem;
+            &:after {
+                content: "▶";
+                position: absolute;
+                top: .5rem;
+                right: 0;
+                font-size: .7em;
+                font-family: Arial,Helvetica,sans-serif;
+            }
+        }
+    }    
+}
+@media (hover: hover) and (pointer: fine) {
+    .site-footer a {
+        transition: border-color .2s;
+        &:hover {
+            border-color: transparent;
+        }
+    }
+}
+@media #{ $lt-phone } {  
+    .site-footer {
+        min-height: 13.25rem;
+    }   
+    .subform {
+        form {
+            display: block;
+            input {
+                margin: 0 0 1rem;
+                flex:auto;
+            }
+            input,
+            button {
+                width: 100%;
+            }
+        }    
+    }    
+} 

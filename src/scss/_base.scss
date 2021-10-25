@@ -1,0 +1,464 @@
+html {
+    background: $red;
+}
+// body {
+//     display: flex;
+//     flex-direction: column;
+// }
+// .scrollwrap {
+//     position: absolute;
+//     height: 100%;
+//     width: 100%;
+//     top:0;
+//     left:0;
+//     display: flex;
+//     flex-direction: column;
+// }
+html {
+    overflow: hidden;
+}
+  
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+footer {
+    flex: 1;
+}
+.imgwrap {
+    position: relative;
+    display: block;
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0;
+        transition: opacity .3s;
+    }
+    &.loaded {
+        img {
+            opacity: 1;
+        }
+    }
+}
+.section-header {
+    padding: 0 2rem;
+    position: relative;
+    //font-size: 4.875rem;
+    //line-height: 1; 
+    display: flex;
+    flex-direction: column;
+    height: 11vh;
+    min-height: 5.875rem;
+    max-height: 7.5rem;
+    justify-content: center;
+    h2 {
+        @include ag-book-condense-bold-outline;
+        &:before {
+            content: "Urban Design For";
+            @include ag-book-condensed-bold;
+            width: 39.25rem;
+            display: inline-block;
+        }
+    }
+    h1, .h1 {
+        @include ag-book-condensed-bold;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        right: 2rem;
+        top:calc(50% - 1rem);
+        width: 0;
+        height: 0;
+        border-top: 1rem solid transparent;
+        border-left: 2rem solid #000;
+        border-bottom: 1rem solid transparent;
+        transition: transform .3s;
+        pointer-events: none;
+    }
+    .close-section {
+        width: 100%;
+        height: 100%;
+        top:0;
+        left:0;
+        position: absolute;
+        display: none;
+    }
+}
+.section-wrap {
+    background: var(--section-color);
+    &.open {
+        .section-header {
+            h2 {
+                @include ag-book-condensed-bold;
+            }
+            &:after {
+                transform: rotate(90deg);
+            }
+            .close-section {
+                display: block;
+            }
+        }    
+    }
+}
+
+.sidebar-layout.section-content-wrap {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 2rem 5.625rem 2rem;
+    .sidebar {
+        //width: 41.5rem;
+        width: 39.5rem;
+        position: sticky;
+        //position: absolute;
+        padding: 2rem 2rem 2rem 0;
+        top:0;
+        left:0;
+    }
+    .sidebar-layout-main {
+        flex:1;
+        padding-top: 2rem;
+    }
+}
+    
+
+.section-content-wrap {
+    padding: 2rem 2rem 5.625rem 41.5rem;
+    position: relative;
+    //.filters-nav,
+    // .sidebar {
+    //     width: 41.5rem;
+    //     position: absolute;
+    //     padding: 2rem;
+    //     top:0;
+    //     left:0;
+    // }
+}
+
+.close-x {
+    width: 4.25rem;
+    height:4.25rem;
+    display: block;
+    padding:1rem;
+    svg {
+        width: 2.25rem;
+        height:2.25rem;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+}
+
+.close-popup {
+    position: absolute;
+    top:1rem;
+    right:1rem;
+}
+
+.filters {
+    font-family: FFElementaWebProRegular;
+    font-size: 1.25rem;
+    line-height: 1;
+    .label {
+        display: block;
+        margin: 0 0 .5em;
+    }
+    .filters-list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 0 1em;
+    }
+    .filter {
+        display: inline-block;
+        margin: 0 .5rem .5rem 0;
+        border: 1px solid #000;
+        border-radius: 0.25rem;
+        padding: 0.5rem 0.75rem;
+        transition: all .15s;
+        white-space: nowrap;
+        &.active {
+            background: #000;
+            color:var(--section-color);
+        }        
+    }
+}
+
+.filter-content {
+    transition: opacity .3s;
+}
+.filtering {
+    .filter-content {
+        opacity: 0;
+    }
+}
+
+
+.index {
+    display: flex;
+    flex-wrap: wrap;
+    article {
+        width: 31%;
+        margin: 0 3.5% 5rem 0;
+        &:nth-child(3n + 3){
+            margin-right: 0;
+        }
+        .imgwrap {
+            padding: 0 0 68%;
+            margin: 0 0 2.25rem;
+            background: var(--section-color);
+            &.placeholder {
+                background: rgba(0,0,0,.25);
+            }
+        }
+        .filters {
+            margin: 0 0 1.5rem;
+        }
+        .details {
+            font-family:"VremenaBook";
+            font-size: 1.75rem;
+            line-height: 1.14;
+            letter-spacing: 0.01em;
+        }
+        h4 {
+            font-family:"VremenaBold";
+            font-weight: 700;
+        }
+    }
+}
+
+.popup-page {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+    background: var(--section-color);
+    overflow:auto;
+    // display: none;
+    // &.open {
+    //     display: block;
+    // }
+    .section-header {
+        h2 {
+            @include ag-book-condensed-bold;
+        }
+        &:after {
+            display: none;
+        }
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    // .filters .filter:hover {
+    //     background: #000;
+    //     color:var(--section-color);
+    // }
+    .section-header:hover { 
+        h2 {
+            @include ag-book-condensed-bold;
+        }
+        &:after {
+            transform: rotate(90deg);
+        }
+    }    
+    .index article a {
+        // .imgwrap {
+        //     img {
+        //         // filter: grayscale(100%);
+        //         // mix-blend-mode: multiply;
+        //         opacity: 0;
+        //         transition: opacity .3s;
+        //     }
+        // }    
+        // .imgwrap {
+        //     &.loaded {
+        //         // &:before {
+        //         //     content: "";
+        //         //     position: absolute;
+        //         //     width: 100%;
+        //         //     height: 100%;
+        //         //     top:0;
+        //         //     left:0;
+        //         //     background-size: cover;
+        //         //     background-position: center;
+        //         //     background-image: var(--bg-img);
+        //         //     //opacity: 0;
+                    
+        //         //     filter: grayscale(100%);
+        //         //     mix-blend-mode: multiply;
+        //         //     z-index: 1;
+        //         // }
+        //         // img {
+        //         //     opacity: 0;
+        //         //     will-change: opacity;
+        //         //     z-index: 2;
+
+        //         // }
+        //         // &:hover img {
+        //         //     opacity: 1;
+        //         // }
+        //     }    
+        // }
+        img {
+            filter: grayscale(100%);
+            mix-blend-mode: multiply; 
+        }  
+
+        &:hover img {
+            filter: grayscale(0%);
+            mix-blend-mode: normal; 
+        }      
+    }
+}
+
+.two-cols {
+    margin-top: 3.75rem;
+    display: flex;
+    justify-content: space-between;
+    .col {
+        width: 48.5%;
+    }
+}
+
+.mobile-header {
+    display: none;
+    &:after {
+        display: none;
+    }
+
+}
+.filters.mobile-filters {
+    display: none;
+    // font-size: 1.25rem;
+    // line-height: 1;
+    .filters-wrap {
+        margin: 0 0 1.875rem;
+    }
+    .label {
+        border: 1px solid;
+        margin: 0;
+        padding: 1rem;
+        border-radius: .25rem;
+        &:after {
+            content: "+";
+            float: right;
+
+        }
+    }
+    .filters-list {
+        display: none;
+    }
+    .filter {
+        display: block;
+        margin: 0;
+        border-radius: 0;
+        //margin: 0 0 -1px;
+        border-top:none;
+        padding: 1rem;
+    }
+    .open {
+        .label {
+            border-radius: .25rem .25rem 0 0;
+            &:after {
+                content: "-";
+                border-radius: .25rem;
+            }
+        }    
+        .filters-list {
+            display: block;
+        }
+    }
+}
+
+
+
+.pagination {
+    text-align: center;
+    display: block;
+    ul {
+        li {
+            display: inline-block;
+            &:after {
+                content: " •";
+            }
+            &:last-child:after {
+                display: none;
+            }
+            a,span {
+                display: inline-block;
+                line-height: 1;
+            }
+            .current {
+                border-bottom: 1px solid;
+            }
+        }
+    }
+}
+@media #{ $lt-phone } { 
+    .filters {
+        &.desktop-filters {
+            display: none;
+        }
+        &.mobile-filters {
+            display:block;
+        }
+    }    
+    .mobile-header {
+        display: flex;
+    }
+    .section-header {
+        h1 {
+            span {
+                display: none;
+            }
+        }
+        h2:before {
+            content: "For";
+            width: 6.25rem;
+        }
+    }
+    .section-content-wrap {
+        padding: 2rem 2rem 5.625rem 2rem;
+    }
+    .index article {
+        width: 48%;
+        margin: 0 4% 5rem 0;
+        &:nth-child(3n+3){
+            margin-right: 4%;
+        }
+        &:nth-child(2n+2){
+            margin-right: 0;
+        }
+    }
+    .two-cols.stack-mob {
+        margin-top: 3.75rem;
+        display: block;
+        .col {
+            width: 100%;
+            &:first-of-type {
+                margin-bottom: 2em;
+            }
+        }
+    } 
+    .sidebar-layout.section-content-wrap .sidebar {
+        display: none;
+    } 
+    #urban-design-forum-australia .sidebar-layout.section-content-wrap {
+        display: block;
+        .sidebar {
+            display: block;
+            width: 100%;
+            padding: 0;
+            position: relative;
+        } 
+    }    
+}    

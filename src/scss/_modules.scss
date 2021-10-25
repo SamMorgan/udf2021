@@ -1,0 +1,57 @@
+.gallery-module {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            width: 31%;
+            margin: 0 3.5% 3.5% 0;
+            &:nth-child(3n + 3){
+                margin-right: 0;
+            }
+            .imgwrap {
+                padding-bottom: var(--ratio-padding);
+            }
+        }
+    }
+}
+
+.single-img-module {
+    width: 50%;
+    margin: 0 auto 5rem;
+}
+
+.pullquote {
+    text-align: center;
+    margin-bottom: 5rem;
+    .quote-att {
+        margin-top: .5em;
+        font-size: 2.25rem;
+        line-height: 1.2;
+        @include ag-book-condensed-bold;
+    }
+}
+
+.subheading {
+    text-align: center;
+    margin: 0 0 1em;
+}
+
+@media #{ $lt-phone } { 
+    .gallery-module {
+        ul {
+            li {
+                width: 48%;
+                margin: 0 4% 4% 0;
+                &:nth-child(3n+3){
+                    margin-right: 4%;
+                }
+                &:nth-child(2n+2){
+                    margin-right: 0;
+                }
+            }
+        }
+    } 
+    .single-img-module {
+        width: 100%;
+    }   
+}    

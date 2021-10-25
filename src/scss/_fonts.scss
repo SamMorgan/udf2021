@@ -1,0 +1,30 @@
+@font-face {
+  font-family:"VremenaBook";
+  src:url("../../assets/fonts/VremenaBook/VremenaBook.woff2") format("woff2"),
+      url("../../assets/fonts/VremenaBook/VremenaBook.woff") format("woff");
+  font-style:normal;
+  font-weight:400;
+  font-display: block;
+}
+
+@font-face {
+  font-family:"VremenaBold";
+  src:url("../../assets/fonts/VremenaBold/VremenaBold.woff2") format("woff2"),
+      url("../../assets/fonts/VremenaBold/VremenaBold.woff") format("woff");
+  font-style:normal;
+  font-weight:700;
+  font-display: block;
+}
+
+@mixin ag-book-condensed-bold {
+  font-family: ag-book-rounded-condensed, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+}
+@mixin ag-book-condense-bold-outline {
+  font-family: ag-book-rounded-condensed-ou, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+}

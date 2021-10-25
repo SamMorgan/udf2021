@@ -1,0 +1,29 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 4169792, 2021-08-30T01:47:20-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: FF Elementa Web Pro Regular by FontFont
+ * URL: https://www.myfonts.com/fonts/fontfont/elementa-pro/regular/
+ * Copyright: 2015 published by Monotype GmbH
+ * 
+ * 
+ * 
+ * © 2021 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3fa040");
+  
+@font-face {
+  font-family: "FFElementaWebProRegular";
+  src: url('webFonts/FFElementaWebProRegular/font.woff2') format('woff2'), url('webFonts/FFElementaWebProRegular/font.woff') format('woff');
+  font-display: block;
+}
+

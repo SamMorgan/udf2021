@@ -1,0 +1,17 @@
+.past-events-heading {
+    position: absolute;
+    top:0;
+    left:0;
+    padding: 2rem;
+}
+.event-content {
+    .lrg-txt {
+        margin: 1em 0 0;
+    }
+}
+
+@media #{ $lt-phone } { 
+    .past-events-heading {
+        display: none;
+    }  
+}    

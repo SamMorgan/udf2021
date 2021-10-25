@@ -1,0 +1,43 @@
+// .research-advocacy-content {
+    
+// }
+.report {
+    // width: 31%;
+    // margin: 0 3.5% 5rem 0;
+    // &:nth-child(3n + 3){
+    //     margin-right: 0;
+    // }
+    .report-cover .imgwrap {
+        padding: 0 0 140%;
+    }
+    .dl-pdf {
+        font-family: FFElementaWebProRegular;
+        font-size: 1.25rem;
+        line-height: 1;
+        a {
+            border-bottom: 1px solid;
+        }
+    }
+    .excerpt p:last-of-type {
+        margin: 0 0 .25em;
+    }
+}
+.single-report {
+    .report {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .report-cover,
+        .details {
+            width: 48.5%;
+        }
+    }
+}
+@media (hover: hover) and (pointer: fine) {
+    .report .dl-pdf a {
+        transition: border-color .2s;
+        &:hover {
+            border-color: transparent;
+        }
+    }
+}    

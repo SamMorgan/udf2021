@@ -1,0 +1,257 @@
+.subpage-nav {
+    @include ag-book-condensed-bold;
+    font-size: 2.5rem;
+    line-height: 1.1;
+
+    width: 41.5rem;
+    position: absolute;
+    padding: 2rem;
+    top:7.75rem;
+    left:0;
+    .toggle-menu-mob {
+        display: none;
+    }
+
+}
+
+.udf-australia-content {
+    .sub-heading {
+        @include ag-book-condensed-bold;
+        font-size: 2.5rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0 0 1em;        
+    }
+    section {
+        padding: 2.5rem 0 5.75rem;
+        border-top: 1px solid;
+        &:first-of-type {
+            border: none;
+            padding-top: 0;
+        }
+    }
+}
+.cta {
+    margin: 0 .5rem .5rem 0;
+}
+.udf-australia-content .cta,
+.view-more a,
+.become-a-member.cta {
+    width: 37rem;
+    margin: 2rem auto 0; 
+    display: block;  
+}
+.cta,
+.view-more a {
+    display: block;
+    border: 1px solid #000;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    transition: all .2s;
+    white-space: nowrap;
+    font-family: FFElementaWebProRegular;
+    font-size: 1.25rem;
+    line-height: 1;
+    text-align: center;
+}
+@media (hover: hover) and (pointer: fine) {
+    .cta {
+        transition: all .2s;
+        &:hover {
+            background: #000;
+            color:var(--section-color);
+        }
+    }
+} 
+
+.paypal-link {
+    border-top: 1px solid;
+    font-family: FFElementaWebProRegular;
+    font-size: 1.5rem;
+    line-height: 1.33;
+    a {
+        display: block;
+        padding: 0.5rem 2.5rem .75rem 0;
+        position: relative;
+        &:after {
+            content: "▶";
+            position: absolute;
+            top:.5rem;
+            right:0;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+    }
+    h6 {
+        @include ag-book-condensed-bold;
+        text-transform: uppercase;
+        line-height: 1;
+        font-size: 1.75rem;
+        line-height: 1.4;
+    }
+    // span {
+    //     font-family: FFElementaWebProRegular;
+    //     font-size: 1.5rem;
+    //     line-height: 1.33;
+    // }
+}
+.panel {
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    background: #e5e5e5;
+    left: -50%;
+    top:0;
+    overflow: auto;
+    transition: transform .4s;
+    z-index: 2;
+    &.open {
+        transform: translate3d(100%,0, 0);
+    }
+    .content {
+        padding: 2rem;
+    }
+    .portrait {
+        width: 27.75rem;
+        margin: 0 auto;
+        // .imgwrap {
+        //     background-color: var(--section-color);
+        //     img {
+
+        //     }
+        // }
+    }
+    .close-panel {
+        position: absolute;
+        bottom:1rem;
+        right:1rem; 
+    }
+}
+.caption {
+    font-family: FFElementaWebProRegular;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.2;
+    margin: 1em 0;
+    display: block;
+}
+
+.logo-group {
+    margin: 3.75rem 0 0;
+    h6 {
+        margin-bottom: 3.75rem;
+    }
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        overflow: hidden;
+        position: relative;
+        &:after {
+            content: "";
+            width: 1px;
+            height: 100%;
+            position: absolute;
+            top:0;
+            left:50%;
+            background: #000;
+        }
+        li {
+            width: 48.5%;
+            display: flex;
+            border-bottom: 1px solid;
+            position: relative;
+            bottom: -1px;
+            height:13.25rem;
+            img {
+                margin: auto;
+                max-width: 19rem;
+                max-height: 8rem;
+                height: auto;
+                width:auto;
+            }
+        }
+    }
+}
+
+.supporters-list {
+    margin: 3.75rem 0 0;
+    font-family:"VremenaBold";
+    h4 {
+        margin: 0 0 .25em;
+    }
+}
+.contacts {
+    .two-cols {
+        margin: 0;
+    }
+}
+
+// @media only screen and (min-width: 750px){
+//     .subpage-nav {
+
+//     }
+// }
+
+@media #{ $lt-phone } {  
+    .subpage-nav {
+        position: relative;
+        top:auto;
+        width: 100%;
+        padding: 0;
+        font-size: 1.25rem;
+        line-height: 1;
+        font-family: FFElementaWebProRegular;
+        font-weight: normal;
+        .toggle-menu-mob,
+        ul li a {
+            padding: 1rem;
+            border: 1px solid;
+        }
+        .toggle-menu-mob {
+            display: block;
+            border-radius: 0.25rem;
+            border: 1px solid;
+            &:after {
+                content: "+";
+                float: right;
+            }
+        }
+        ul {
+            display: none;
+            li {
+                a {
+                    border-top: none;
+                    display: block;
+                }    
+            }
+        }
+        &.open {
+            .toggle-menu-mob {
+                border-radius: 0.25rem 0.25rem 0 0;
+                &:after {
+                    content: "-";
+                }
+            }
+            ul {
+                display: block;
+            }
+        }
+    }
+    .udf-australia-content {
+        .sub-heading {
+            font-size: 2.25rem;
+        }
+    } 
+    .paypal-link {
+        font-size:1.25rem;
+        h6 {
+            font-size: 1.5rem;
+        } 
+    } 
+    .panel {
+        width: 100%;
+        left:-100%;
+    }     
+}    
