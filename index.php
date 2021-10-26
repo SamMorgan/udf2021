@@ -87,7 +87,8 @@ if(isset($_COOKIE['openPages'])) {
     </div>
 <?php }?>
 
-<?php if(is_page() && !in_array($post->ID, array(8,10,12,14,16,18,20,22))){ ?>
+<?php $newsletter_archive = get_page_by_path( 'newsletter-archive' );
+if(is_page() && !in_array($post->ID, array(8,10,12,14,16,18,20,22,$newsletter_archive->ID))){ ?>
 <div class="popup-page subpage-content<?php //if(is_page() && !in_array($post->ID, array(8,10,12,14,16,18,20,22))){ echo ' open'; }?>" style="--section-color:<?php 
     $color = get_field('section_colour',$post->ID) ? get_field('section_colour',$post->ID) : '#e6e6e6';
     echo $color;
@@ -103,12 +104,15 @@ if(isset($_COOKIE['openPages'])) {
 </div>
 <?php } ?>
 
-<?php if(is_paged() || $_GET['view-more']){
+<?php if(is_paged() || $_GET['view-more'] || is_page('newsletter-archive')){
     if($post->ID === 10){
         include 'includes/content-knowledge-sharing-paged.php';
     }
     if($post->ID === 22){
         include 'includes/content-public-conversations-paged.php';
+    }
+    if(is_page('newsletter-archive')){
+        include 'includes/content-newsletter-archive.php';
     }
 }?>
 

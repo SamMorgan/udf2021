@@ -248,10 +248,29 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_6176d5e4edfae",
+                            "label": "External Link",
+                            "name": "external_link",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "10",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
                             "key": "field_6176d523dd4b1",
                             "label": "Link",
                             "name": "link",
-                            "type": "text",
+                            "type": "link",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -260,11 +279,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "return_format": "array"
                         },
                         {
                             "key": "field_6176d52ddd4b2",
@@ -284,25 +299,6 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
-                        },
-                        {
-                            "key": "field_6176d5e4edfae",
-                            "label": "External Link",
-                            "name": "external_link",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "10",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
                         }
                     ],
                     "min": "",
@@ -320,9 +316,7 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "event"
-            }
-        ],
-        [
+            },
             {
                 "param": "page",
                 "operator": "!=",
@@ -362,6 +356,11 @@
                 "param": "page",
                 "operator": "!=",
                 "value": "20"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "newsletter"
             }
         ]
     ],
@@ -373,5 +372,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1635177998
+    "modified": 1635216509
 }

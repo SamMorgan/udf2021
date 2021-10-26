@@ -117,6 +117,7 @@ const openPopups = () => {
                     onComplete: ()=>{
                         closePopups()
                         fadeInImgs()
+                        paginationFunc()
                     }
                 });
 
@@ -282,6 +283,7 @@ function paginationFunc(){
                                 fadeInImgs()
                                 openPaginationFunc()
                                 mobileFilters()
+                                paginationFunc()
                             }
                         });
 

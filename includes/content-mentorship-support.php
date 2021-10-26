@@ -11,5 +11,5 @@
         ?></div>
     </div> 
 
-    <a class="cta become-a-member" href="<?php echo get_permalink(20);?>#become-a-member">Become a Member</a>   
+    <a class="cta module" href="<?php echo get_permalink(20);?>#become-a-member">Become a Member</a>   
 </div> 

@@ -1,0 +1,23 @@
+.newsletter-archive-content {
+    display: flex;
+    flex-direction: column;
+    h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0 0 1em;
+    }
+    .section-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .pagination {
+        margin-top: auto;
+    }
+}
+.index article.newletter-card .imgwrap {
+    padding-bottom: 134%;
+
+}

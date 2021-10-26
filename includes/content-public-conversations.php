@@ -113,7 +113,7 @@
         <?php $next_link = get_next_posts_link(__('View More', 'textdomain'), $events_query->max_num_pages);
             if($next_link){
                 //echo '<div class="open-pagination-popup view-more filter-content">'.$next_link.'</div>';
-                echo '<div class="open-pagination-popup view-more filter-content"><a href="'.get_permalink(22).'?view-more=1'.$query.'">View More</a></div>';
+                echo '<div class="open-pagination-popup view-more filter-content"><a class="cta" href="'.get_permalink(22).'?view-more=1'.$query.'">View More</a></div>';
             }
         ?>    
     </div>              

@@ -25,7 +25,7 @@
                     echo '<div class="lrg-txt">'.$about_us_text.'</div>';
                 }
                 if($about_us_cta_link && $about_us_cta_text){
-                    echo '<a class="cta open-popup" href="'.$about_us_cta_link.'">'.$about_us_cta_text.'</a>';
+                    echo '<a class="cta module open-popup" href="'.$about_us_cta_link.'">'.$about_us_cta_text.'</a>';
                 }
             ?>
         </section> 
@@ -44,7 +44,7 @@
                     echo '<div class="lrg-txt">'.$history_text.'</div>';
                 }
                 if($history_cta_link && $history_cta_text){
-                    echo '<a class="cta open-popup" href="'.$history_cta_link.'">'.$history_cta_text.'</a>';
+                    echo '<a class="cta module open-popup" href="'.$history_cta_link.'">'.$history_cta_text.'</a>';
                 }
             ?>
         </section>
