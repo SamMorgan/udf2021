@@ -42,7 +42,7 @@ if(isset($_COOKIE['openPages'])) {
                     echo '<h2>'.$page->post_title.'</h2>'; 
                 }?>
             </a>
-            <a class="close-section" href="<?php echo home_url();?>" data-path="/<?php echo $page->post_name;?>/"></a>    
+            <a class="close-section" href="<?php echo home_url('/');?>" data-path="/<?php echo $page->post_name;?>/"></a>    
         </div> 
         <div class="section-content">
             <?php 

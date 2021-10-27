@@ -19,6 +19,8 @@ const http = axios.create({
 });
 
 let h;
+let scrollValues = {};
+
 
 const getCookie = (cname)=>{
     let name = cname + "=";
@@ -42,6 +44,8 @@ const setCookie = (cname, cvalue, exdays)=>{
     let expires = "expires="+d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
+
+let openPages = getCookie('openPages') ? getCookie('openPages').split(',') : []
 
 
 const fadeInImgs = () => {
@@ -97,6 +101,7 @@ function updateUrl(href,data){
     var title = data.querySelector('title').innerText;
     window.history.pushState({path:href},'',href);
     document.title = title;
+    scrollValues[window.location.href] = document.body.scrollTop;
 }
 
 const openPopups = () => { 
@@ -416,9 +421,12 @@ if(sectionLinks){
 
                 updateUrl(sectionLink.href,doc)
 
-                let openPages = getCookie('openPages') ? getCookie('openPages').split(',') : []
+                // let openPages = getCookie('openPages') ? getCookie('openPages').split(',') : []
+                // openPages.push(sectionWrap.querySelector('.close-section').dataset.path)
                 openPages.push(sectionWrap.querySelector('.close-section').dataset.path)
                 setCookie("openPages", openPages, 30); 
+                
+                localStorage.setItem('lastOpened', sectionWrap.id);
 
                 const tl = gsap.timeline({
                     onComplete: ()=>{ 
@@ -467,19 +475,20 @@ closeSectionLinks.forEach((closeSectionLink)=> {
         });
 
         const closePath = closeSectionLink.dataset.path
-        let openPages = getCookie('openPages') ? getCookie('openPages').split(',') : []
+        //let openPages = getCookie('openPages') ? getCookie('openPages').split(',') : []
         const i = openPages.indexOf(closePath);
         if (i > -1) {
-        openPages.splice(i, 1);
+            openPages.splice(i, 1);
         }
         setCookie("openPages", openPages, 30); 
 
-        //console.log(window.innerHeight, document.body.scrollTop, document.documentElement.scrollHeight)
-        //console.log(document.body.scrollHeight - sectionContentWrap.clientHeight, window.innerHeight + document.body.scrollTop, document.body.scrollHeight - document.body.scrollTop - sectionContentWrap.clientHeight, window.innerHeight)
+        //const f = window.innerHeight - (document.querySelector('.section-wrap .section-header').clientHeight * 8) - document.querySelector('.site-footer').clientHeight
+        let h = document.body.scrollHeight - sectionContentWrap.clientHeight - document.body.scrollTop
+        //console.log("space:", window.innerHeight - h, 'f:',f, document.body.scrollTop)
 
-        if(document.body.scrollTop > 0){ 
-            let s = Math.max(document.body.scrollHeight - window.innerHeight - document.body.scrollTop - sectionContentWrap.clientHeight,0)
-            //let s = document.documentElement.scrollHeight - sectionContentWrap.clientHeight
+        if(h < window.innerHeight){    
+            let s = document.body.scrollTop - (window.innerHeight - h)
+
             tl.to(sectionContentWrap, {
                 duration: .3,
                 opacity: 0
@@ -512,6 +521,71 @@ window.addEventListener('beforeunload', function(e) {
 if(localStorage.getItem('scrollpos')){
     document.body.scrollTop = localStorage.getItem('scrollpos')
 }
+
+
+/**
+ * Simulate a click event.
+ * @public
+ * @param {Element} elem  the element to simulate a click on
+ */
+ var simulateClick = function (elem) {
+	// Create our event (with options)
+	var evt = new MouseEvent('click', {
+		bubbles: true,
+		cancelable: true,
+		view: window
+	});
+	// If cancelled, don't dispatch our event
+	var canceled = !elem.dispatchEvent(evt);
+
+};
+
+window.addEventListener('popstate', function(event) {
+    const href = event.state.path
+    const links = document.querySelectorAll('a[href="'+href+'"]')
+
+    // if(links.length === 1){
+    //     console.log('oen section')
+    //     simulateClick(links[0]);
+    //     console.log(scrollValues[href])
+    //     // if(scrollValues[href]){
+    //     //     gsap.to(document.body, {
+    //     //         duration:.6, 
+    //     //         scrollTo: scrollValues[href] 
+    //     //     })
+    //     // }
+    // }else{
+    //     if(links[0].classList.contains('close-section') && localStorage.getItem("lastOpened")){
+    //         const link = document.querySelector('#'+localStorage.getItem("lastOpened")+ ' .close-section')
+    //         if(link){
+    //             simulateClick(link);
+    //             // if(scrollValues[href]){
+    //             //     gsap.to(document.body, {
+    //             //         duration:.6, 
+    //             //         scrollTo: scrollValues[href] 
+    //             //     })
+    //             // }
+    //         }
+    //     }else{
+    //         window.location.href = href
+    //     }
+    // }
+        if(links[0].classList.contains('close-section') && localStorage.getItem("lastOpened")){
+            const closeSectionLink = document.querySelector('#'+localStorage.getItem("lastOpened")+ ' .close-section')
+            const closePath = closeSectionLink.dataset.path
+            const i = openPages.indexOf(closePath);
+            if (i > -1) {
+                openPages.splice(i, 1);
+            }
+            setCookie("openPages", openPages, 30); 
+            window.location.href = href
+        }else{
+            window.location.href = href
+        }
+    
+    
+
+}, false);
 
 // barba.init({
 //     debug: true,

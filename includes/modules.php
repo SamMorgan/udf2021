@@ -76,7 +76,7 @@
                 }else{
                     echo 'class="cta module open-popup"'; 
                 }
-                ?> href="<?php echo $link;?>"><?php echo $text;?></a>
+                ?> href="<?php echo $link['url'];?>"><?php echo $text;?></a>
 
         <?php endif;
 
