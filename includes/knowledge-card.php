@@ -23,7 +23,7 @@
                     echo '<h5>'.$date_loc.'</h5>';
                 }
             ?>
-            <?php the_excerpt();?>
+            <?php the_content();?>
         </div>
     </a>        
 </article> 

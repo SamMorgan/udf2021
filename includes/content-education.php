@@ -3,7 +3,7 @@
     <div class="two-cols stack-mob">
         <div class="col"><?php the_field('column_1',14);?></div>
         <div class="col education-providers"><?php 
-            $col_2 = get_field('column_2');
+            $col_2 = get_field('column_2',14);
             if($col_2['heading']){
                 echo '<h4>'.$col_2['heading'].'</h4>';
             }

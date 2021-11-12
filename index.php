@@ -26,7 +26,8 @@ if(isset($_COOKIE['openPages'])) {
     foreach($open_pages_paths as $open_page_path){
         $open_pages[] = get_page_by_path($open_page_path)->ID;
     } 
-} ?>
+} 
+?>
 
 <div class="mobile-header section-header"><span class="h1">Urban Design</span></div>
 
@@ -68,7 +69,7 @@ if(isset($_COOKIE['openPages'])) {
                 if($open_pages && in_array(18,$open_pages) && $page->ID === 18 || $page->ID === 18 && is_page(18)){
                     include 'includes/content-change.php';
                 }
-                if($open_pages && in_array(20,$open_pages) && $page->ID === 20 || $page->ID === 20 && is_page(20) || $post->post_parent === 20){
+                if($open_pages && in_array(20,$open_pages) && $page->ID === 20 || $page->ID === 20 && is_page(20) || $page->ID === 20 && $post->post_parent === 20){
                     include 'includes/content-udf-australia.php';
                 }
             ?>
@@ -87,9 +88,9 @@ if(isset($_COOKIE['openPages'])) {
     </div>
 <?php }?>
 
-<?php $newsletter_archive = get_page_by_path( 'newsletter-archive' );
-if(is_page() && !in_array($post->ID, array(8,10,12,14,16,18,20,22,$newsletter_archive->ID))){ ?>
-<div class="popup-page subpage-content<?php //if(is_page() && !in_array($post->ID, array(8,10,12,14,16,18,20,22))){ echo ' open'; }?>" style="--section-color:<?php 
+<?php // newsletter archive page ID 369 //
+if(is_page() && !in_array($post->ID, array(8,10,12,14,16,18,20,22,369))){ ?>
+<div class="popup-page subpage-content" style="--section-color:<?php 
     $color = get_field('section_colour',$post->ID) ? get_field('section_colour',$post->ID) : '#e6e6e6';
     echo $color;
     ?>">

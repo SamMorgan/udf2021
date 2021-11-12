@@ -77,7 +77,7 @@
                             <div class="paypal-link">
                                 <a href="<?php echo $link;?>" target="_blank">
                                     <h6><?php echo $heading;?></h6>
-                                    <?php echo $details;?>
+                                    <span><?php echo $details;?></span>
                                 </a>
                             </div>   
                             
@@ -112,7 +112,7 @@
                                 $list .= '<li class="richtext"><a class="open-panel" href="#'.$id.'">'.$name.'</a>, '.$role.'</li>';?>
                                 <div class="panel profile" id="<?php echo $id;?>">
                                     <div class="content">
-                                        <div class="lrg-txt"><?php echo $bio;?></div>
+                                        <div class="med-txt"><?php echo $bio;?></div>
                                         <?php
                                         if($portrait){ 
                                             echo '<div class="portrait">';
@@ -197,9 +197,7 @@
                             echo '<li class="two-cols"><strong class="col">'.$heading.'</strong><span class="col"><a href="mailto:'.$email.'">'.$email.'</a></span></li>';   
                         }
                     echo '</ul>';
-                }    
-
-
+                }   
             ?>
         </section>
     </div>        

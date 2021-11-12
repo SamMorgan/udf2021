@@ -284,6 +284,7 @@ footer {
     height:100%;
     background: var(--section-color);
     overflow:auto;
+    z-index: 2;
     // display: none;
     // &.open {
     //     display: block;
@@ -391,7 +392,8 @@ footer {
         padding: 1rem 0;
     }
     .label {
-        border: 1px solid;
+        //border: 1px solid;
+        border: .75px solid;
         margin: 0;
         &:after {
             content: "+";
@@ -401,7 +403,7 @@ footer {
     }
     .label,
     .filter {
-        padding: 1.2rem;
+        padding: 1.4rem 1.2rem 1.2rem;
         border-radius: .5rem;
     }
     .filters-list {
@@ -413,7 +415,7 @@ footer {
         border-radius: 0;
         //margin: 0 0 -1px;
         border-top:none;
-        padding: 1.2rem;
+        padding: 1.4rem 1.2rem 1.2rem;
         height: auto;
         &:last-of-type {
             border-radius: 0 0 .5rem .5rem;           
@@ -466,9 +468,10 @@ footer {
             display:block;
         }
         .filter {
-            padding: 1.2rem;
+            padding: 1.4rem 1.2rem 1rem;
             height: auto;
             border-radius: .5rem;
+            border:.75px solid;
         }
     }
     .mobile-header {
@@ -527,5 +530,13 @@ footer {
             padding: 0;
             position: relative;
         } 
-    }    
+    }
+    .popup-page {
+        .section-header {
+            padding-top: 2rem;
+            max-height: 100%;
+            height: auto;
+            min-height: auto;
+        }   
+    }     
 }    

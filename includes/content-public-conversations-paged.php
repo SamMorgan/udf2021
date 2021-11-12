@@ -1,5 +1,5 @@
 <?php $convo_filters = convo_filters();?>
-<div class="popup-page" id="public-conversations-paged" style="--section-color:<?php the_field('section_colour',22);?>">
+<div class="popup-page section-wrap" id="public-conversations-paged" style="--section-color:<?php the_field('section_colour',22);?>">
     <div class="section-header h1">
         <?php echo '<h2>'.get_the_title(22).'</h2>';?>
     </div>

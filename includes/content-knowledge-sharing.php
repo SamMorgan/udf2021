@@ -20,8 +20,7 @@
             <?php
                 $knowledge_arr = array(
                     'post_type' => 'knowledge',
-                    'orderby' => 'rand',
-                    'order' => 'ASC'
+                    'orderby' => 'rand'
                 );
                 //$filter_names = array('type','topic');
                 //if(isset($_GET[$filter_names[0]]) || isset($_GET[$filter_names[1]])){
@@ -44,8 +43,8 @@
                     }    
                     $knowledge_arr = array(
                         'post_type' => 'knowledge',
+                        'order'	=> 'ASC',
                         'orderby' => 'rand',
-                        'order' => 'ASC',
                         'posts_per_page' => 6,
                         'tax_query' => array(
                             'relation' => 'AND',
@@ -60,6 +59,8 @@
                     while ( $knowledge_query->have_posts() ) : $knowledge_query->the_post(); 
                         include 'knowledge-card.php'; 
                     endwhile;
+                // else : 
+                //     echo "No results";
                 endif;?>
         </div>      
         <?php 

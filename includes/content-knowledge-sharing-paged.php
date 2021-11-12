@@ -3,7 +3,7 @@
     $filter_names = array('type','topic');
     $filters = check_filters($filter_names,10);
 ?> 
-<div class="popup-page" id="knowledge-sharing-paged" style="--section-color:<?php the_field('section_colour',10);?>">
+<div class="popup-page section-wrap" id="knowledge-sharing-paged" style="--section-color:<?php the_field('section_colour',10);?>">
     <div class="section-header h1">
         <?php echo '<h2>'.get_the_title(10).'</h2>';?>
     </div>
@@ -25,10 +25,10 @@
                 <div class="filter-content index">
                     <?php
                         $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-                        $knowledge_arr = array(
+                        $paged_knowledge_arr = array(
                             'post_type' => 'knowledge',
-                            'orderby' => 'rand',
-                            'order' => 'ASC',
+                            'order'	=> 'ASC',
+                            'orderby' => 'menu_order',
                             'paged' => $paged
                         );
                         if(isset($filters)){  
@@ -45,10 +45,10 @@
                                     }    
                                 }    
                             }    
-                            $knowledge_arr = array(
+                            $paged_knowledge_arr = array(
                                 'post_type' => 'knowledge',
-                                'orderby' => 'rand',
-                                'order' => 'ASC',
+                                'orderby' => 'menu_order',
+                                'order'	=> 'ASC',
                                 'paged' => $paged,
                                 'tax_query' => array(
                                     'relation' => 'AND',
@@ -56,13 +56,15 @@
                                 )  
                             );
 
-                        }    
-                        $knowledge_query = new WP_Query($knowledge_arr); 
+                        }   
+                        $knowledge_query_paged = new WP_Query($paged_knowledge_arr); 
 
-                        if($knowledge_query->have_posts()) : 
-                            while ( $knowledge_query->have_posts() ) : $knowledge_query->the_post(); 
+                        if($knowledge_query_paged->have_posts()) : 
+                            while ( $knowledge_query_paged->have_posts() ) : $knowledge_query_paged->the_post(); 
                                 include 'knowledge-card.php';   
                             endwhile;
+                        // else :
+                        //     echo "<p>No results</p>";
                         endif;?>
                     </div>      
                     <?php 
@@ -73,7 +75,7 @@
                             'prev_next' => false,
                             'type' => 'list',
                             'current' => max( 1, get_query_var('paged') ),
-                            'total' =>  $knowledge_query->max_num_pages
+                            'total' =>  $knowledge_query_paged->max_num_pages
                         ) );
                         if($pagination){
                             echo '<nav class="pagination pagination-cont filter-content">'.$pagination.'</nav>';

@@ -123,6 +123,7 @@ const openPopups = () => {
                         closePopups()
                         fadeInImgs()
                         paginationFunc()
+                        openPopups()
                     }
                 });
 
@@ -182,9 +183,13 @@ function filterFunc(){
                             }
                         });
 
+                        //console.log(filter, filter.href)
+
                         updateUrl(filter.href,doc)
 
-                        sectionWrap.querySelector('.section-link').href = filter.href
+                        if(sectionWrap.querySelector('.section-link')){
+                            sectionWrap.querySelector('.section-link').href = filter.href
+                        }
 
                         setCookie('filters-'+sectionWrap.id,filter.href,30)
 

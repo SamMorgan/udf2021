@@ -192,7 +192,7 @@ function knowledge_post_type() {
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
 		'taxonomies'            => array( 'topic' ),
-		'hierarchical'          => false,
+		'hierarchical'          => true,
 		'public'                => false,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
@@ -304,7 +304,7 @@ function report_post_type() {
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
 		'taxonomies'            => array( 'topic' ),
-		'hierarchical'          => false,
+		'hierarchical'          => true,
 		'public'                => false,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
@@ -534,6 +534,10 @@ function knowledge_filters($filter){ ?>
                         $query = '?'.$filter.'='.$type->slug;
                     }
 
+					if(isset($_GET['view-more'])){
+						$query .= $prefix.'&view-more=1';
+					}
+
                     echo '<a class="filter'.$active.'" href="'.get_permalink(10).$query.'">'.$type->name.'</a>';
                 } 
             }                
@@ -555,7 +559,7 @@ function convo_filters(){
     if($filter && $filter['event-status'] === 'past'){ 
         $past_filter = '<a class="filter active" href="'.get_permalink(22).'">past</a>';
     }
-    return '<span class="label">Sort by type:</span><div class="filters-list">'.$upcoming_filter.$past_filter.'</div>';
+    return '<div class="filters-wrap"><span class="label">Sort by type:</span><div class="filters-list">'.$upcoming_filter.$past_filter.'</div></div>';
 }
 
 

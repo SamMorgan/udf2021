@@ -14,6 +14,8 @@
 
 }
 
+
+
 .udf-australia-content {
     .sub-heading {
         @include ag-book-condensed-bold;
@@ -23,12 +25,16 @@
         text-align: center;
         margin: 0 0 1em;        
     }
+    &.sidebar-layout.section-content-wrap .sidebar-layout-main {
+        padding: 0;
+    }
     section {
-        padding: 2.5rem 0 5.75rem;
+        //padding: 2.5rem 0 5.75rem;
+        padding: 2rem 0 5.75rem;
         border-top: 1px solid;
         &:first-of-type {
             border: none;
-            padding-top: 0;
+            //padding-top: 0;
         }
     }
 }
@@ -61,6 +67,15 @@
         &:hover {
             background: #000;
             color:var(--section-color);
+        }
+    }
+    .paypal-link {
+        span {
+            border-bottom: 1px solid transparent;
+            transition: border-color .2s;
+        }
+        &:hover span {
+            border-color:#000;
         }
     }
 } 
@@ -120,6 +135,17 @@
     }
     .content {
         padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        overflow: auto;
+
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+        &::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
+        }
     }
     .portrait {
         width: 27.75rem;
@@ -243,7 +269,7 @@
             display: block;
             border-radius: 0.5rem;
             padding: 1.2rem;
-            border: 1px solid;
+            border: .75px solid;
             &:after {
                 content: "+";
                 float: right;
@@ -292,5 +318,7 @@
     .view-more a { 
         border-radius: .5rem;
         padding: 1.2rem;
-    }    
+        border: .75px solid #000;
+    } 
+       
 }    

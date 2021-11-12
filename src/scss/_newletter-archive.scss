@@ -1,7 +1,7 @@
 .newsletter-archive-content {
     display: flex;
     flex-direction: column;
-    h1 {
+    .section-content-wrap h1 {
         font-size: 2.5rem;
         line-height: 1.1;
         text-transform: uppercase;
@@ -17,7 +17,39 @@
         margin-top: auto;
     }
 }
-.index article.newletter-card .imgwrap {
-    padding-bottom: 134%;
+.index article.newletter-card {
+    width: 22.375%;
+    margin: 0 3.5% 5rem 0;
+    &:nth-child(3n+3){
+        margin: 0 3.5% 5rem 0;
+    }
+    &:nth-child(4n+4){
+        margin-right: 0;
+    }
+    .imgwrap {
+        padding-bottom: 134%;
 
-}
+    }
+}  
+@media #{ $lt-phone } { 
+    .index article.newletter-card {
+        // width: 48%;
+        // margin: 0 4% 5rem 0;
+        // &:nth-child(3n+3),
+        // &:nth-child(4n+4){
+        //     margin: 0 4% 5rem 0;
+        // }
+        // &:nth-child(2n+2){
+        //     margin-right: 0;
+        // }
+        width: 30%;
+        margin: 0 3.3% 5rem 0;
+        &:nth-child(3n+3),
+        &:nth-child(4n+4){
+            margin: 0 3.3% 5rem 0;
+        }
+        &:nth-child(3n+3){
+            margin-right: 0;
+        }
+    } 
+}      
